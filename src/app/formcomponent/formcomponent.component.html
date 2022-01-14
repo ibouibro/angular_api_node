@@ -1,0 +1,41 @@
+<p>formcomponent works!</p>
+
+
+
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<div>
+<form style="width:400px;margin-left:90px;" [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="form-group">
+    <label for="description"> Description</label>
+    <input type="text" class="form-control" id="description" formControlName="description">
+  </div>
+  <div class="form-group">
+    <label for="prix"> Prix</label>
+    <input type="text" class="form-control" id="prix" formControlName="prix">
+  </div>
+  <div class="form-group">
+    <label for="image"> image</label>
+    <input type="text" class="form-control" id="image" formControlName="image">
+  </div>
+  <div class="form-group">
+    <label for="date"> date de naissance</label>
+    <input type="date" class="form-control" id="date" formControlName="date">
+  </div>
+  <div class="form-group">
+    
+  <button type="submit" class="btn btn-dark">Valider</button>
+</div>
+
+</form>
+</div>
+
+
+
