@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormcomponentComponent } from './formcomponent/formcomponent.component';
+import { PublicationsComponent } from './publications/publications.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormcomponentComponent
+    FormcomponentComponent,
+    PublicationsComponent
   ],
   imports: [
     BrowserModule,

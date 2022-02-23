@@ -31,6 +31,10 @@ date : [],
     
 
    
+   
+   
+
+   
   }
 
 
@@ -40,7 +44,7 @@ date : [],
   {
     console.log('valeurs du formulaire',this.loginForm.value);
 
-    this.http.get<Publication[]>('http://127.0.0.1:8000/api/liste/',).subscribe(data => {
+    this.http.get<Publication[]>('http://127.0.0.1:8000/api/liste/').subscribe(data => {
   
      this.publications=data;
      console.log('resultats ', this.publications[0].prix, this.publications[0].image, this.publications[0].date);
