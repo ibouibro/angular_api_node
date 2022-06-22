@@ -26,23 +26,48 @@ export class RegisterComponent implements OnInit {
           });
 
   }
-
+msg="";
   register()
   {
+    let fo = this.registerForm.value
+    if(fo.password == null || fo.name==null || fo.email==null)
+    {
+      this.msg="tous les champs doivent être remplis"
+      this.router.navigate(['register']);
+         return;
+    } 
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(fo.email)))
+  {
+    this.msg="email invalide"
+      this.router.navigate(['register']);
+       return;
+  }
+
+    if(this.registerForm.value.password.length<6)
+    {
+      this.msg="le mot de passe doit au moins faire 6 caractres"
+      this.router.navigate(['register']);
+         return;
+    }
     console.log(this.registerForm.value)
     this.authService.signUp(this.registerForm.value).subscribe({
       next: data => {
-          console.log(data)
-          if(data)
+          console.log(data.oki)
+          if(data.oki==true)
           {
           this.registerForm.reset();
           this.router.navigate(['login']);
           }
-      },
-      error: error => {
+          else{
+            this.msg=data.msg
+            this.router.navigate(['register']);
+          }},
+          error: err => {
+            this.registerForm.reset()
+            this.msg= " : erreur cet utilisateur existe"
+            this.router.navigate(['register']);
           
-          console.error('There was an error!', error);
-      }
+          }
   })
 
 }}

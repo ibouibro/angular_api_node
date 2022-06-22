@@ -21,9 +21,21 @@ export class LoginComponent implements OnInit {
       password: [''],
     });
   }
+  msg=""
   ngOnInit() {}
   loginUser() {
-    this.authService.signIn(this.loginForm.value)
+    this.authService.signIn(this.loginForm.value).subscribe({ next:res => {
+      localStorage.setItem('access_token', res.access_token);
+      
+  
+        
+      
+    },
+    error : err => {
+     this.loginForm.reset()
+     this.msg="non autorisé"
+     this.router.navigate(['login/']);
+    }});
 ;
   }
 
