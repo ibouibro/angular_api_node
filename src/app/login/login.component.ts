@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.authService.signIn(this.loginForm.value).subscribe({ next:res => {
       localStorage.setItem('access_token', res.access_token);
-      
+      this.router.navigate(['user-profile/']);
+  
   
         
       
